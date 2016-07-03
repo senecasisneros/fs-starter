@@ -29,13 +29,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 ///// ROUTERS /////
 
+app.use('/api', require('./routes/api'));
 
+app.get('/', (req, res) => {
+  res.render('index', {title: 'Title'});
+});
 
 ///////////////////
 
-app.use('/', (req, res) => {
-  res.render('index', {title: 'WOO TITLE!'});
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
