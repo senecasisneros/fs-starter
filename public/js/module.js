@@ -10,7 +10,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 });
 
-
+//   $stateProvider
+//     .state('home', { url: '/', templateUrl: '/html/home.html' })
+//     .state('albums', { url: '/albums', templateUrl: '/html/albums.html', controller: 'albumListCtrl' })
+//     .state('album', { url: '/album/:albumId', templateUrl: '/html/album.html' })
+//   $urlRouterProvider.otherwise('/');
+// });
 
 
   // let menuView = {

@@ -44,8 +44,6 @@ let router = express.Router();
 //     }
 //   });
 
-module.exports = router;
-
 // router.route('/')
 //   .get((req, res) => {
 
@@ -59,32 +57,6 @@ module.exports = router;
 //     })
 //   })
 
-// router.put('/:propertyId/addResident/:residentId', (req, res) => {
-//   Property.findById(req.params.propertyId, (err,property) => {
-//     if(err || !property) return res.status(400).send(err || {error: 'Property not found'});
-
-//     // '577420498a444ff041815e89'
-//     property.resident = req.params.residentId;
-//     property.save((err, savedProperty) => {
-//       res.status(err ? 400 : 200).send(err || savedProperty);
-//     });
-//   });
+module.exports = router;
 
 
-// propertySchema.statics.totalRent = function(cb) {
-//   this.find({}, (err, properties) => {
-//     if(err) return cb(err);
-
-//     let totalRent = properties.reduce((sum, prop) => sum + prop.totalRent(), 0);
-
-//     cb(null, totalRent);
-//   });
-// };
-
-// propertySchema.methods.totalRent = function() {
-
-//   let numTenants = this.tenants.length;
-//   let totalRent = numTenants * this.rent;
-
-//   return totalRent;
-// };

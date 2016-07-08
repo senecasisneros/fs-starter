@@ -1,12 +1,14 @@
 'use strict';
 
-const PORT = process.env.PORT || 8000;
+require('dotenv').config();
+
+const PORT = process.env.PORT || 3000;
 
 let express = require('express');
 let path = require('path');
 let http = require('http');
 let favicon = require('serve-favicon');
-let logger = require('morgan');
+let morgan = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
@@ -21,7 +23,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -35,8 +37,13 @@ app.get('/', (req, res) => {
   res.render('index', {title: 'Title'});
 });
 
-///////////////////
+///////// MONGO ////////
 
+let MONGO_URL = process.env.MONGODB_URI || 'mongodb://localhost/dbTitle';
+
+require('mongoose').connect(MONGO_URL, err => {
+  console.log(`MongoDB connected to ${MONGO_URL}`);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
