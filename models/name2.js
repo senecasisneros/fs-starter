@@ -9,10 +9,10 @@ const JWT_SECRET = process.env.JWT_SECRET;
 let userSchema = new mongoose.Schema({
   email: String,
   password: String,
-  displayName: String, // their name
+  displayName: String, 
   profileImage: String,
   admin: { type: Boolean, default: false },
-  facebook: String  // Facebook profile id
+  facebook: String  
 });
 
 userSchema.statics.authorize = function(paramsObj = {admin: false}) {
